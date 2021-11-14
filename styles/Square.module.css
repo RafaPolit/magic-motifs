@@ -1,0 +1,41 @@
+.squareContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.blockSquareRow {
+  display: flex;
+}
+
+.row {
+  display: flex;
+}
+
+.square {
+  width: 14px;
+  height: 14px;
+  overflow: visible;
+  position: relative;
+}
+
+.on,
+.off {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: -1px;
+  left: -1px;
+}
+
+.off {
+  /* background-color: #fff;
+  border: 1px solid #bbb; */
+  z-index: 99;
+}
+
+.on {
+  /* background-color: #00f;
+  border: 1px solid #00a; */
+  z-index: 101;
+}

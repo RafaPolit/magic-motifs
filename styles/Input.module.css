@@ -1,0 +1,80 @@
+.centered {
+  width: 550px;
+  height: 100px;
+  margin: 32px auto;
+  position: relative;
+}
+
+.group {
+  width: 100%;
+  height: calc(550px / 5);
+  overflow: hidden;
+  position: relative;
+}
+
+.label {
+  position: absolute;
+  top: calc(550px / 15);
+  color: rgba(33, 33, 33, 0.5);
+  font-size: calc(550px / 15);
+  font-weight: 400;
+  cursor: text;
+  transition: 0.25s ease;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  padding-top: calc(550px / 15);
+  border: none;
+  border-radius: 0;
+  color: rgb(52, 50, 70);
+  background: #fff;
+  font-size: calc(550px / 15);
+  transition: 0.3s ease;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+.input:valid ~ label {
+  top: 0;
+  font-size: calc(550px / 25);
+  color: rgba(33, 33, 33, 0.5);
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input:focus ~ label {
+  top: 0;
+  font-size: calc(550px / 25);
+  color: #333;
+}
+
+.bar {
+  background: rgba(33, 33, 33, 0.5);
+  content: "";
+  width: 550px;
+  height: calc(550px / 150);
+  transition: 0.3s ease;
+  position: relative;
+}
+
+.bar:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #669;
+  transform: translateX(-100%);
+}
+
+input:focus ~ .bar:before {
+  transform: translateX(0) !important;
+}
+
+.input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #f44336 inset;
+  -webkit-text-fill-color: #333 !important;
+}
