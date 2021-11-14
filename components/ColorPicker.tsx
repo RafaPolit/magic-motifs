@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react";
 import { ChromePicker } from "react-color";
 
-import { ColorsContext } from "../utils/colorsContext";
+import { defaultColors, ColorsContext } from "../utils/colorsContext";
 import styles from "../styles/Colorpicker.module.css";
 
 interface Props {
-  colorKey: string;
+  colorKey: keyof typeof defaultColors;
 }
 
 export const ColorPicker = ({ colorKey }: Props) => {

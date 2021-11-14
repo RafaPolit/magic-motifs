@@ -9,6 +9,9 @@ import { ColorsContext } from "../utils/colorsContext";
 import { MagicSquare } from "../components/MagicSquare";
 import { VedicSquare } from "../components/VedicSquare";
 import { ColorPicker } from "../components/ColorPicker";
+import { magicValues, vedicValues } from "../utils/values";
+
+type ValidCharacter = keyof typeof magicValues | keyof typeof vedicValues | "";
 
 const defaultColors = {
   background: { h: 0, s: 0, l: 1, a: 1 },
@@ -18,13 +21,16 @@ const defaultColors = {
 const Home: NextPage = () => {
   const [text, setText] = useState("");
   const [colors, setColors] = useState(defaultColors);
-  const [characters, setCharacters] = useState("");
+  const [characters, setCharacters] = useState("" as ValidCharacter);
 
   const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setText(event.target.value);
     const allChars = event.target.value.toLowerCase().split("");
     const charsSet = new Set(allChars);
-    const usedChars = [...charsSet].join("").replace(/[^a-z0-9]+/g, "");
+    const usedChars = [...charsSet]
+      .join("")
+      .replace(/[^a-z0-9]+/g, "") as ValidCharacter;
+
     setCharacters(usedChars);
   };
 
@@ -37,7 +43,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Rosangela's Magic Motifs</h1>
+        <h1 className={styles.title}>Rosangela&apos;s Magic Motifs</h1>
 
         <div className={stylesInput.centered}>
           <div className={stylesInput.group}>

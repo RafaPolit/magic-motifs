@@ -3,15 +3,14 @@ import { Square } from "./Square";
 import { magicValues as equivalences } from "../utils/values";
 import styles from "../styles/Square.module.css";
 
+type ValidCharacter = keyof typeof equivalences;
 interface Props {
-  characters: string;
+  characters: ValidCharacter | "";
 }
 
 export const MagicSquare = ({ characters = "" }: Props) => {
-  const charsArray = characters.split("");
-  const values = new Set(
-    characters.split("").map((c) => equivalences[c] as number)
-  );
+  const charsArray = characters.split("") as ValidCharacter[];
+  const values = new Set(charsArray.map((c) => equivalences[c]));
 
   return (
     <div className={styles.squareContainer}>
